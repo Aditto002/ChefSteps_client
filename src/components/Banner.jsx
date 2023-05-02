@@ -3,7 +3,7 @@ import Carousel from 'react-bootstrap/Carousel';
 
 function Banner() {
   return (
-    <Carousel fade style={{ height: '400px' }}>
+    <Carousel fade >
       <Carousel.Item>
         <img
         style={{ height: '700px' }}
