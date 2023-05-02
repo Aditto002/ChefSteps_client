@@ -8,17 +8,17 @@ function Header() {
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
     <Container>
-      <Navbar.Brand href="#home">CHEFSTEPS</Navbar.Brand>
+      <Navbar.Brand href="/">CHEFSTEPS</Navbar.Brand>
       <Navbar.Toggle aria-controls="responsive-navbar-nav" />
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="me-auto">
-          <Nav.Link href="#features">Home</Nav.Link>
-          <Nav.Link href="#pricing">Blog</Nav.Link>
+          <Nav.Link href="/">Home</Nav.Link>
+          <Nav.Link href="/blog">Blog</Nav.Link>
         </Nav>
         <Nav>
-          <Nav.Link href="#deets">More deets</Nav.Link>
-          <Nav.Link eventKey={2} href="#memes">
-            Dank memes
+          <Nav.Link href="/login">Login</Nav.Link>
+          <Nav.Link eventKey={2} href="/register">
+            Register
           </Nav.Link>
         </Nav>
       </Navbar.Collapse>
