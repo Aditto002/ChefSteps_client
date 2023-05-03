@@ -3,7 +3,8 @@ import { Container } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
-import { FaStar } from 'react-icons/fa';
+import { FaRegStar, FaStar } from 'react-icons/fa';
+import Rating from 'react-rating';
 
 function ViewCards({categorychef}) {
     
@@ -23,7 +24,14 @@ const {recipe_name,ingredients,image,cooking_method,rating,_id } = categorychef;
            <h4>cooking method : </h4>{cooking_method}
               </Card.Text>
               <Card.Text>
-              <FaStar />   {rating}
+             <div  className='flex-grow-1'>
+             <Rating
+              placeholderRating={rating}
+              readonly
+               emptySymbol={<FaRegStar></FaRegStar>}
+               placeholderSymbol={<FaStar className='text-warning'></FaStar>}
+                fullSymbol={<FaStar></FaStar>}></Rating>  <span> {rating}</span>
+             </div>
               </Card.Text>
             </Card.Body>
           </Card>
