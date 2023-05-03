@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
+import { Button, Container } from 'react-bootstrap';
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
+import { FaGrinHearts } from 'react-icons/fa';
 function ChefCards() {
     const [categories, setCategories] =useState([]);
     useEffect(()=>{
@@ -12,7 +14,10 @@ function ChefCards() {
     },[])
   return (
     <div className='mt-3 mb-4'>
+        <div className='mt-4 mx-auto'>Chinese Chef</div>
     {
+    
+        <Container>
     <Row xs={1} md={2} className="g-4">
       {categories.map((categorie) => (
     <Col key={categorie.id}>
@@ -23,11 +28,16 @@ function ChefCards() {
           <Card.Text>
           Experience : {categorie.experience}
           </Card.Text>
+          <Card.Text>
+          <FaGrinHearts /> {categorie.like}
+          </Card.Text>
         </Card.Body>
+        <Button variant="outline-primary">View Recipes</Button>
       </Card>
     </Col>
   ))}
 </Row>
+  </Container>
 
         }
     
