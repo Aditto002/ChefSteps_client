@@ -4,6 +4,7 @@ import Home from "../pages/Home";
 import Blog from "../pages/Blog";
 import Login from "../pages/Login";
 import Regiter from "../pages/Regiter";
+import Categories from "../components/Categories";
 
 const router = createBrowserRouter([
     {
@@ -25,6 +26,12 @@ const router = createBrowserRouter([
         {
           path:"/register",
           element:<Regiter></Regiter>
+        },
+        {
+          path:"/category/:id",
+          element:<Categories></Categories>,
+          // loader:({params}) => console.log(params.id)
+        loader:({params})=>fetch(`http://localhost:5000/categories/${params.id}`)
         }
       ]
     },

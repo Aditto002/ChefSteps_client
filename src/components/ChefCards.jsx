@@ -4,6 +4,7 @@ import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import { FaGrinHearts } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 function ChefCards() {
     const [categories, setCategories] =useState([]);
     useEffect(()=>{
@@ -14,7 +15,7 @@ function ChefCards() {
     },[])
   return (
     <div className='mt-3 mb-4'>
-        <div className='mt-4 mx-auto'>Chinese Chef</div>
+        {/* <div className='mt-4 mx-auto'>Chinese Chef</div> */}
     {
     
         <Container>
@@ -31,8 +32,11 @@ function ChefCards() {
           <Card.Text>
           <FaGrinHearts /> {categorie.like}
           </Card.Text>
-        </Card.Body>
+        <Link to={`/category/${categorie.id}`}>
         <Button variant="outline-primary">View Recipes</Button>
+        </Link>
+        </Card.Body>
+        
       </Card>
     </Col>
   ))}
