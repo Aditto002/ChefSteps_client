@@ -1,10 +1,21 @@
 import React from 'react'
 import { useLoaderData } from 'react-router-dom'
+import ViewCards from './ViewCards';
+
+
 
 function Categories() {
-    const categorychef = useLoaderData();
-  return (
-    <div>Categories : {categorychef.length}</div>
+    const categorychefs = useLoaderData();
+    return (
+      <div>Categories : {categorychefs.length}
+      {
+        categorychefs.map(categorychef => <ViewCards 
+        key={categorychef._id}
+        categorychef= {categorychef}></ViewCards>
+        )
+      }
+      </div>
+      
   )
 }
 
