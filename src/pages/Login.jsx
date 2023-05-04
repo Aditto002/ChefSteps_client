@@ -1,13 +1,32 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { Container, Row, Col, Form, Button, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../providers/AuthProbider';
 
 function Login() {
+  const {signIn} = useContext(AuthContext);
+
+const handleLogin = event =>{
+  event.preventDefault();
+  const form = event.target;
+  const email = form.email.value;
+  const password = form.password.value;
+  console.log(email,password);
+  signIn(email,password)
+  .then(result =>{
+    const loggedUser = result.user;
+    console.log(loggedUser);
+  })
+  .catch(error =>{
+    console.log(error);
+  })
+}
+    
   return (
     <Card className="w-100 h-100 mt-5 mb-5 mx-auto" style={{ maxWidth: '600px', maxHeight: '800px' }}>
       <Card.Body className="d-flex flex-column justify-content-center mt-5 mb-5 ">
         <h3>Please Login</h3>
-        <Form>
+        <Form onSubmit={handleLogin}>
           <Form.Group controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>
             <Form.Control type="email" name="email" required placeholder="Enter email" />
