@@ -9,7 +9,13 @@ import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 
 function Header() {
-  const {user} = useContext(AuthContext) 
+  const {user,logOut} = useContext(AuthContext)
+  
+  const handelLogOut =()=>{
+    logOut()
+    .then()
+    .catch(error=>console.log(error))
+  }
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
     <Container>
@@ -25,7 +31,7 @@ function Header() {
         </Nav>
         <Nav>
           <Nav.Link href="">{
-            user ? <Link to='/login'><Button variant="dark">LogOut</Button></Link>:<div> <Link to='/login'><Button variant="dark">Login</Button></Link><Link to='/register'><Button variant="dark">Register</Button></Link></div>
+            user ? <Link to='/login'><Button onClick={handelLogOut} variant="dark">LogOut</Button></Link>:<div> <Link to='/login'><Button variant="dark">Login</Button></Link><Link to='/register'><Button variant="dark">Register</Button></Link></div>
 }</Nav.Link>
           
         </Nav>

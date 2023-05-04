@@ -5,6 +5,7 @@ import Blog from "../pages/Blog";
 import Login from "../pages/Login";
 import Regiter from "../pages/Regiter";
 import Categories from "../components/Categories";
+import PriveteRoute from "../priveteRoute/PriveteRoute";
 
 const router = createBrowserRouter([
     {
@@ -29,7 +30,7 @@ const router = createBrowserRouter([
         },
         {
           path:"/category/:id",
-          element:<Categories></Categories>,
+          element:<PriveteRoute><Categories></Categories></PriveteRoute>,
           // loader:({params}) => console.log(params.id)
         loader:({params})=>fetch(`http://localhost:5000/categories/${params.id}`)
         }
