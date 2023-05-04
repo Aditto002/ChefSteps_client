@@ -6,6 +6,16 @@ import Row from 'react-bootstrap/Row';
 import { FaGrinHearts } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 function ChefCards() {
+
+  const [disabled, setDisabled] = useState(false);
+
+  const handleClick = () => {
+    setDisabled(true);
+  };
+
+
+
+
     const [categories, setCategories] =useState([]);
     useEffect(()=>{
         fetch('http://localhost:5000/categories')
@@ -34,7 +44,11 @@ function ChefCards() {
           </Card.Text>
         <Link to={`/category/${categorie.id}`}>
         <Button variant="outline-primary">View Recipes</Button>
+        
         </Link>
+        <Button variant="primary" className='ms-3' onClick={handleClick} disabled={disabled}>
+      {disabled ? 'Favourite' : 'Favourite'}
+    </Button>
         </Card.Body>
         
       </Card>

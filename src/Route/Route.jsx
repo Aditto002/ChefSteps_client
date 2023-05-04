@@ -6,6 +6,7 @@ import Login from "../pages/Login";
 import Regiter from "../pages/Regiter";
 import Categories from "../components/Categories";
 import PriveteRoute from "../priveteRoute/PriveteRoute";
+import NotFound from "../pages/NotFound";
 
 const router = createBrowserRouter([
     {
@@ -33,8 +34,12 @@ const router = createBrowserRouter([
           element:<PriveteRoute><Categories></Categories></PriveteRoute>,
           // loader:({params}) => console.log(params.id)
         loader:({params})=>fetch(`http://localhost:5000/categories/${params.id}`)
-        }
+        },
       ]
     },
+    {
+      path:'*',
+      element:<NotFound></NotFound>
+    }
   ]);
   export default router;

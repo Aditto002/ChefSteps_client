@@ -7,11 +7,14 @@ export const AuthContext = createContext(null);
 function AuthProbider({children}) {
     // const user =null;
     const [user,setUser] =useState(null);
+    const [loading,setLoading] = useState(true);
     const createUser = (email,password) =>{
+      setLoading(true);
       return createUserWithEmailAndPassword(auth,email,password);
     }
     
     const signIn =(email,password) =>{
+      setLoading(true);
       return signInWithEmailAndPassword(auth,email,password);
     }
     const logOut = ()=>{
@@ -22,6 +25,7 @@ function AuthProbider({children}) {
     const unsubscribe=  onAuthStateChanged(auth, loggedUser=>{
         console.log("logged in user ",loggedUser)
         setUser(loggedUser);
+        setLoading(false);
       })
       return ()=>{
         unsubscribe();
@@ -30,7 +34,7 @@ function AuthProbider({children}) {
 
     const authInfo = {
       createUser,
-      signIn,user,logOut
+      signIn,user,logOut,loading
     }
   return (
     <AuthContext.Provider value= {authInfo}>
