@@ -15,10 +15,10 @@ function ChefCards() {
     },[])
   return (
     <div className='mt-3 mb-4'>
-        {/* <div className='mt-4 mx-auto'>Chinese Chef</div> */}
     {
-    
-        <Container>
+      
+      <Container>
+          <h1 className='mt-4 mx-auto mb-4'>Chinese Chef</h1>
     <Row xs={1} md={2} className="g-4">
       {categories.map((categorie) => (
     <Col key={categorie.id}>
