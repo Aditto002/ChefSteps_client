@@ -1,11 +1,18 @@
 import React from 'react'
-import { Container } from 'react-bootstrap'
+import { Button, Container } from 'react-bootstrap'
+import html2pdf from 'html2pdf.js';
+ 
+const handleSavePDF=()=> {
+  const input = document.getElementById('pdf-content');
+  html2pdf(input);
+  
+}
 
 function Blog() {
   return (
-    <div>
-      <Container>
-      <div className='border-bottom bg-secondary text-white p-4 rounded m-4'>
+    <Container >
+        <div id="pdf-content">
+      <div className='border-bottom bg-secondary text-white p-4 rounded m-4' >
         <h3>1.Tell us the differences between uncontrolled and controlled components.</h3>
         <h4>Answer :</h4>
         <p>In an uncontrolled component, the DOM handles the form data by itself in the component. Whereas in a controlled component, the state is used to handle the form data within the component.In React, components are the building blocks of an application that perform specific tasks or functions. These components can be classified into two types: controlled and uncontrolled components.Uncontrolled components are components whose state is not managed by React. The state of these components is managed by the browser's DOM. Examples of uncontrolled components include HTML input elements like text input, checkboxes, and radio buttons.</p>
@@ -36,9 +43,10 @@ function Blog() {
         Custom hooks can be used to encapsulate complex or repetitive logic that is used across multiple components. By defining this logic in a custom hook, you can reduce code duplication and improve the readability and maintainability of your code.Reusing Stateful Logic: If you have multiple components that use the same stateful logic, you can create a custom hook to encapsulate that logic. For example, you could create a custom hook that handles form validation logic or manages the state of a modal window.</p>
       </div>
       
-
-      </Container>
     </div>
+      
+      <Button className='mb-5' onClick={handleSavePDF} variant="info">Save as PDF</Button>
+      </Container>
     
   )
 }

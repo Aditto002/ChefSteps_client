@@ -27,7 +27,7 @@ function Header() {
           <Nav.Link href="/blog">Blog</Nav.Link>
         </Nav>
         <Nav>
-          {user && <Nav.Link href=""><FaUserCircle style={{fontSixe :"2rem"}}></FaUserCircle></Nav.Link>}
+          {user && <Nav.Link href=""><FaUserCircle style={{fontSixe :"2rem"}}></FaUserCircle><img className='rounded-circle'style={{height:'40px'}} src={user.photoURL} alt="" /></Nav.Link>}
         </Nav>
         <Nav>
           <Nav.Link href="">{
