@@ -10,12 +10,14 @@ function Login() {
  
   console.log(location);
   const from = location.state?.from?.pathname || '/';
+  console.log("here ", from)
 
   const handleGit =()=>{
     gitLogin()
     .then((result) => {
       const user = result.user;
       console.log(user);
+      navigate(from);
 
  })
  .catch((error) => {
@@ -28,6 +30,7 @@ function Login() {
     .then((result) => {
          const user = result.user;
          console.log(user);
+         navigate(from);
 
     })
     .catch((error) => {
@@ -41,7 +44,8 @@ const handleLogin = event =>{
   const form = event.target;
   const email = form.email.value;
   const password = form.password.value;
-  console.log(email,password);
+  console.log(email
+  ,password);
    
 
 

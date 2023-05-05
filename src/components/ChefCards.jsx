@@ -5,13 +5,20 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import { FaGrinHearts } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import Toast from 'react-bootstrap/Toast';
 function ChefCards() {
 
+
+  const [showToast, setShowToast] = useState(false);
   const [disabled, setDisabled] = useState(false);
 
   const handleClick = () => {
+    setShowToast(true);
     setDisabled(true);
   };
+
+
+  const handleToastClose = () => setShowToast(false);
 
 
 
@@ -46,9 +53,18 @@ function ChefCards() {
         <Button variant="outline-primary">View Recipes</Button>
         
         </Link>
-        <Button variant="primary" className='ms-3' onClick={handleClick} disabled={disabled}>
-      {disabled ? 'Favourite' : 'Favourite'}
-    </Button>
+
+    <Button variant="outline-primary" className='ms-3'  onClick={handleClick} disabled={disabled}>
+    Favourite
+      </Button>
+    <div>
+      <Toast show={showToast} onClose={handleToastClose}>
+        <Toast.Header>
+          <strong>Favourite</strong>
+        </Toast.Header>
+        <Toast.Body>You like the  chef food</Toast.Body>
+      </Toast>
+    </div>
         </Card.Body>
         
       </Card>

@@ -9,10 +9,11 @@ function Categories() {
     return (
       <div><h3 >Totle Recips : {categorychefs.length}</h3>
       {
-        categorychefs.map(categorychef => <ViewCards 
+        categorychefs.map(categorychef => 
+        <ViewCards 
         key={categorychef._id}
         categorychef= {categorychef}></ViewCards>
-        )
+)
       }
       </div>
       
