@@ -5,6 +5,7 @@ import CardGroup from 'react-bootstrap/CardGroup';
 
 function Services() {
   return (
+    <section>
     <Container className='mb-5'>
      <h1 className='mt-4 mb-4'>Our Services</h1>
        
@@ -39,6 +40,7 @@ function Services() {
     </CardGroup>
         
     </Container>
+    </section>
   )
 }
 
